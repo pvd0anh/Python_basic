@@ -1,87 +1,120 @@
-class Student:
-    # Constructor
-    def __init__(self, name, rollno, m1, m2):
-        self.name = name
-        self.rollno = rollno
-        self.m1 = m1
-        self.m2 = m2
+class sinhvien:
+    def __init__(self, ten, mssv, toan, van):
+        self.ten = ten
+        self.mssv = mssv
+        self.toan = toan
+        self.van = van
 
-    # Function to create and append new student
-    # hàm tạo và thêm mới student
-    def accept(self, Name, Rollno, marks1, marks2):
-        # use ' int(input()) ' method to take input from user
-        ob = Student(Name, Rollno, marks1, marks2)
+    # hàm tạo và thêm mới sinhvien
+    def create(self, ten, mssv, Toan, Van):
+        ob = sinhvien(ten, mssv, Toan, Van)
         ls.append(ob)
+        print("Bạn muốn thêm bao nhiêu sinh viên:")
+        n = int(input())
+        for i in range(n):
+            ten = str(input("Tên sinh viên {}: ".format(i+1)))
+            mssv = int(input("MSSV sinh viên {}: ".format(i+1)))
+            Toan = int(input("Điểm môn toán sinh viên {}: ".format(i+1)))
+            Van = int(input("Điểm môn văn sinh viên {}: ".format(i+1)))
+            ob = sinhvien(ten, mssv, Toan, Van)
+            ls.append(ob)
+            print("\n")
+        '''
+        Vấn đề gặp phải:
+            + khi nhập giá trị mssv, Toán, Văn được yêu cầu phải là số thực
+            + người dùng nhập kiểu Starting
+            + câu hỏi đặt ra là: làm sao để giải quyết vấn đề này?
+            => sử dụng try_except trong python
+            Nội dung này sẽ được tìm hiểu và ứng dụng trong khóa advance
+        '''
 
-    # Function to display student details
-    # Hàm hiển thị thông tin chi tiết student
+    # Hàm hiển thị thông tin chi tiết sinh viên
     def display(self, ob):
-        print("Name : ", ob.name)
-        print("RollNo : ", ob.rollno)
-        print("Marks1 : ", ob.m1)
-        print("Marks2 : ", ob.m2)
-        print("\n")
+        print("Tên sinh viên : ", ob.ten)
+        print("Mã số sinh viên : ", ob.mssv)
+        print("Điểm môn toán : ", ob.toan)
+        print("Điểm môn văn : ", ob.van)
 
-    # Search Function
-    # Hàm tìm kiếm 
-    def search(self, rn):
+    # Hàm tìm kiếm thông tin sinh viên
+    def search(self, mssv):
         for i in range(ls.__len__()):
-            if(ls[i].rollno == rn):
+            if(ls[i].mssv == mssv):
                 return i
+        print("Không sinh viên nào có mssv", mssv)
+        return False
 
-    # Delete Function
-    # Hàm xóa
-    def delete(self, rn):
-        i = obj.search(rn)
+    # Hàm xóa thông tin sinh viên
+    def delete(self, mssv):
+        i = obj.search(mssv)
         del ls[i]
 
-    # Update Function
     # Hàm cập nhật thông tin
-    def update(self, rn, No):
-        i = obj.search(rn)
-        roll = No
-        ls[i].rollno = roll
+    def update(self):
+        mssv_old = int(input("Nhập mssv cần chỉnh sửa:"))
+        i = obj.search(mssv_old)
+        if i:
+            mssv_new = int(input("Nhập mssv mới:"))
+            ls[i].mssv = mssv_new
 
 
-# Create a list to add Students
-# Tạo 1 list để thêm Students
+# Tạo 1 list để thêm sinhvien
 ls = []
-# an object of Student class
-obj = Student('', 0, 0, 0)
-# student 
-print("\nOperations used, ")
-print("\n1.Accept Student details\n2.Display Student Details\n" "3.Search Details of a Student\n4.Delete Details of Student" "\n5.Update Student Details\n6.Exit")
+# Tạo object sinhvien
+obj = sinhvien('', 0, 0, 0)
+# sinhvien
+list_choice = """
+                1.Tạo và thêm thông tin sinh viên\n
+                2.Hiển thị thông tin sinh viên\n
+                3.Tìm kiếm thông tin của sinh viên\n
+                4.Xóa sinh viên ra khỏi danh sách\n
+                5.Cập nhật thông tin sinh viên\n
+                6.Exit\n"""
+print("\nChương trình quản lý thông tin sinh viên:")
+while True:
+    print(list_choice)
 
-# ch = int(input("Enter choice:"))
-# if(ch == 1):
-obj.accept("A", 1, 100, 100)
-obj.accept("B", 2, 90, 90)
-obj.accept("C", 3, 80, 80)
+    ch = int(input("Nhập lựa chọn:[1,2,3,4,5]: "))
 
-# elif(ch == 2):
-print("\n")
-print("\nList of Students\n")
-for i in range(ls.__len__()):
-    obj.display(ls[i])
+    if(ch == 1):
+        ten = 'Pham Van Doanh'
+        mssv = 2345
+        Toan = 10
+        Van = 7
+        obj.create(ten, mssv, Toan, Van)
 
-# elif(ch == 3):
-print("\n Student Found, ")
-s = obj.search(2)
-obj.display(ls[s])
+    elif(ch == 2):
+        print("\n")
+        print("\nDanh sách sinh viên:\n")
+        for i in range(ls.__len__()):
+            obj.display(ls[i])
+            input()
 
-# elif(ch == 4):
-obj.delete(2)
-print(ls.__len__())
-print("List after deletion")
-for i in range(ls.__len__()):
-    obj.display(ls[i])
+    elif(ch == 3):
+        mssv = int(input("Nhập mssv cần tìm: "))
+        s = obj.search(mssv)
+        if s:
+            obj.display(ls[s])
+        input()
 
-# elif(ch == 5):
-obj.update(3, 2)
-print(ls.__len__())
-print("List after updation")
-for i in range(ls.__len__()):
-    obj.display(ls[i])
+    elif(ch == 4):
+        mssv = int(input("Nhập mssv cần xóa: "))
+        obj.delete(mssv)
+        print(ls.__len__())
+        print("Danh sách sinh viên sau khi xóa:")
+        for i in range(ls.__len__()):
+            print("\n")
+            obj.display(ls[i])
+        input()
 
-# else:
-print("Thank You !")
+    elif(ch == 5):
+        obj.update()
+        print(ls.__len__())
+        print("Danh sách sau khi được cập nhật:")
+        for i in range(ls.__len__()):
+            obj.display(ls[i])
+            print("\n")
+        input()
+
+    else:
+        print("Thank You !")
+        exit()

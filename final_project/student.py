@@ -68,7 +68,7 @@ def Home():
             print("Nhập giá trị có trong dánh sách lựa chọn nhé bạn <3")
 
 def schedule():
-    #TODO: thiết kế bảng thời khóa biểu trong tuần
+    #TODO: Thiết kế bảng chứa thời khóa biểu trong tuần
     pass
 
 def home_work():
@@ -84,7 +84,7 @@ def exercise():
     pass
 
 def find_x():
-    #TODO: viết chương trình giải phương trình bật nhất
+    #TODO: viết chương trình giải phương trình tìm x
     pass
 
 if __name__ == "__main__":
