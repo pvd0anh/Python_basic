@@ -89,3 +89,15 @@ def find_x():
 
 if __name__ == "__main__":
     Home()
+
+import turtle
+turtle.forward(50)
+turtle.left(144)
+turtle.forward(50)
+turtle.left(144)
+turtle.forward(50)
+turtle.left(144)
+turtle.forward(50)
+turtle.left(144)
+turtle.forward(50)
+turtle.left(144)

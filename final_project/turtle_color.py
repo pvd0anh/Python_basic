@@ -39,7 +39,6 @@ def drawSpecial(t, size, repeat):
         drawCircles(t, size)
         t.right(360/repeat)
 
-
 drawSpecial(Steve, 100, 10)
 Barry = turtle.Turtle()
 Barry.speed(0)
@@ -51,12 +50,6 @@ def drawCircles(t, size):
     for i in range(4):
         t.circle(size)
         size = size-5
-
-
-def drawSpecial(t, size, repeat):
-    for i in range(repeat):
-        drawCircles(t, size)
-        t.right(360/repeat)
 
 
 drawSpecial(Barry, 100, 10)
@@ -72,11 +65,6 @@ def drawCircles(t, size):
         size = size-19
 
 
-def drawSpecial(t, size, repeat):
-    for i in range(repeat):
-        drawCircles(t, size)
-        t.right(360/repeat)
-
 
 drawSpecial(Terry, 100, 10)
 Will = turtle.Turtle()
@@ -91,10 +79,5 @@ def drawCircles(t, size):
         size = size-20
 
 
-def drawSpecial(t, size, repeat):
-    for i in range(repeat):
-        drawCircles(t, size)
-        t.right(360/repeat)
-
-
 drawSpecial(Will, 100, 10)
+turtle.done()

@@ -4,22 +4,23 @@ import time
 start = time.time()
 
 grass = Turtle()
-
 sky = Turtle()
-
 tuft = Turtle()
-
 cut = Turtle()
-
 lake = Turtle()
-
 mountain = Turtle()
-
 trees = Turtle()
-
 cloud = Turtle()
 
 turtles = [grass, sky, mountain, trees, cloud, lake, tuft, cut]
+
+
+# https://www.google.com/search?q=color+picker
+skycol = ['add8e6', 'b5d8e5', 'bdd8e4', 'c5d8e3', 'cdd8e3',
+          'd6d8e2', 'ded8e1', 'e6d8e1', 'eed8e0', 'f6d8df', 'ffd9df']
+
+browns = ['#7a5230', '#614126', '#49311c', '#302013', '#181009']
+greens = ['#004000', '#003300', '#002600', '#001900', '#004c00']
 
 
 def penup():
@@ -38,22 +39,13 @@ def speed():
         i.hideturtle()
 
 
-penup()
-sky.color('#e5e5ff')
-sky.pensize(100)
-sky.goto(-200, -200)
-pendown()
-
-# https://www.google.com/search?q=color+picker
-skycol = ['add8e6', 'b5d8e5', 'bdd8e4', 'c5d8e3', 'cdd8e3',
-          'd6d8e2', 'ded8e1', 'e6d8e1', 'eed8e0', 'f6d8df', 'ffd9df']
-
-browns = ['#7a5230', '#614126', '#49311c', '#302013', '#181009']
-greens = ['#004000', '#003300', '#002600', '#001900', '#004c00']
-
-
 def drawsky():
     print("Drawing sky")
+    penup()
+    sky.color('#e5e5ff')
+    sky.pensize(100)
+    sky.goto(-200, -200)
+    pendown()
     for i in skycol:
         temp = '#' + i
         sky.color(temp)

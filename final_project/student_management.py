@@ -1,3 +1,15 @@
+"""
+Bài: viết chương trình quản lý sinh viên với những chức năng sau:
+    1.Tạo và thêm thông tin sinh viên
+    2.Hiển thị thông tin sinh viên
+    3.Tìm kiếm thông tin của sinh viên
+    4.Xóa sinh viên ra khỏi danh sách
+    5.Cập nhật thông tin sinh viên
+    6.Hàm thoát khỏi chương trình
+Chương trình dạng menu cho phép sử dụng các tính năng trên.
+"""
+
+
 class sinhvien:
     def __init__(self, ten, mssv, toan, van):
         self.ten = ten
@@ -37,6 +49,8 @@ class sinhvien:
 
     # Hàm tìm kiếm thông tin sinh viên
     def search(self, mssv):
+        #TODO: add chỉnh hết tất cả các trường
+
         for i in range(ls.__len__()):
             if(ls[i].mssv == mssv):
                 return i
@@ -50,6 +64,8 @@ class sinhvien:
 
     # Hàm cập nhật thông tin
     def update(self):
+        #TODO: add chỉnh hết tất cả các trường
+
         mssv_old = int(input("Nhập mssv cần chỉnh sửa:"))
         i = obj.search(mssv_old)
         if i:
