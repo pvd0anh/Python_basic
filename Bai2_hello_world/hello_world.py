@@ -30,3 +30,17 @@ print(("Line 1 - Result of + is ", res))
 # Bước 3: Cộng num1 vào đầu ra của Bước 2 (9 + 4)
 
 # Bước 4: Chương trình sẽ in kết quả cuối cùng là 13
+
+# x = "awesome"
+
+
+# def myfunc():
+#     global x
+#     x = "fantastic"
+
+# def ins():
+#     print(x)
+# if __name__ == "__main__":
+#     myfunc()
+#     print("Python is " + x)
+#     ins()
